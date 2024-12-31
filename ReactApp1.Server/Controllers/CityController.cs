@@ -22,6 +22,9 @@ namespace ReactApp1.Server.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetCity()
         {
+            Guid control = Guid.NewGuid();
+
+            _logger.LogInformation($"Searching for cities. Control: {control}");
             List <City> cities = new();
 
             try

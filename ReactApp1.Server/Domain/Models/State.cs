@@ -11,7 +11,7 @@ namespace ReactApp1.Server.Domain.Models
         public int ID { get; set; }
 
         [Column("Name", TypeName = "text"), Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [ForeignKey("Country")]
         [Column("CountryID", TypeName = "integer"), Required]

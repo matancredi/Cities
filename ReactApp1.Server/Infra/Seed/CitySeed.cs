@@ -30,6 +30,32 @@ namespace ReactApp1.Server.Infra.Seed
                     Name = "Guararema",
                     StateID = 1
                 });
+            modelBuilder.Entity<EconomicGroup>().HasData(
+                new EconomicGroup
+                {
+                    ID = 1,
+                    CreationDate = DateTime.Now,
+                    Name = "Mercosul",
+                });
+            modelBuilder.Entity<CountryGroup>().HasData(
+                new CountryGroup
+                {
+                    ID = 1,
+                    CountryID = 1,
+                    GroupID = 1
+                });
+            modelBuilder.Entity<ProjectLog>().HasData(
+                new ProjectLog
+                {
+                    Date = DateTime.Now,
+                    Exception = "test",
+                    Hostname = "test",
+                    Level = "Test",
+                    Logger = "Test",
+                    Message = "Test",
+                    Thread = "Test",
+                    ID = 1
+                });
         }
     }
 }

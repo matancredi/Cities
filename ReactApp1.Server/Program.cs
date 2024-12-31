@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
+using NLog.Web;
 using ReactApp1.Server.Domain.Interfaces;
 using ReactApp1.Server.Infra;
 using ReactApp1.Server.Infra.Repositories;
@@ -18,6 +18,14 @@ builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<ICityRepository, CityRepository>();
 builder.Services.AddScoped<IStateService, StateService>();
 builder.Services.AddScoped<IStateRepository, StateRepository>();
+
+builder.Host.ConfigureLogging(
+    log =>
+    {
+        log.ClearProviders()
+            .AddFilter("Microsoft", LogLevel.Warning)
+            .AddFilter("System", LogLevel.Warning);
+    }).UseNLog();
 
 var app = builder.Build();
 
