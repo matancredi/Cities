@@ -17,5 +17,15 @@ namespace ReactApp1.Server.Services
         {
             return _cityRepository.Get();
         }
+
+        public int Save(City city)
+        {
+            return _cityRepository.Save(city);
+        }
+
+        public int Delete(int cityId)
+        {
+            return _cityRepository.Delete(cityId);
+        }
     }
 }

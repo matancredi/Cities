@@ -16,7 +16,7 @@ namespace ReactApp1.Server.Domain.Models
         [ForeignKey("Country")]
         [Column("CountryID", TypeName = "integer"), Required]
         public int CountryID { get; set; }
-        public Country Country { get; set; }
+        public Country? Country { get; set; }
 
         [Column("CreationDate", TypeName = "text"), Required]
         public DateTime CreationDate { get; set; }

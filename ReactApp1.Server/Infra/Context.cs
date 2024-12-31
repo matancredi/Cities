@@ -10,8 +10,8 @@ namespace ReactApp1.Server.Infra
         public Context(DbContextOptions<Context> options) : base(options) { }
         public Context() { }
         public DbSet<City> Cities { get; set; }
-        public DbSet<City> Countries { get; set; }
-        public DbSet<City> States { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<State> States { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Filename=Teste.db")

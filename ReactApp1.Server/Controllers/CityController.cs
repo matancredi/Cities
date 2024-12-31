@@ -19,9 +19,8 @@ namespace ReactApp1.Server.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public List<City> GetCity()
+        public IActionResult GetCity()
         {
             List <City> cities = new();
 
@@ -32,11 +31,46 @@ namespace ReactApp1.Server.Controllers
             catch(Exception ex)
             {
                 _logger.LogError(ex, "Error when listing cities");
-                //return BadRequest();
+                return BadRequest();
             }
 
-            //return Ok(cities);
-            return cities;
+            return Ok(cities);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult SaveCity(City city)
+        {
+            try
+            {
+                _cityService.Save(city);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error when inserting new city");
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteCity(int cityId)
+        {
+            try
+            {
+                _cityService.Delete(cityId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error when deleting given city");
+                return BadRequest();
+            }
+
+            return Ok();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ReactApp1.Server.Domain.Models
         [ForeignKey("State")]
         [Column("StateID", TypeName = "integer")]
         public int StateID { get; set; }
-        public State State { get; set; }
+        public State? State { get; set; }
 
         [Column("CreationDate", TypeName = "text")]
         public DateTime CreationDate { get; set; }

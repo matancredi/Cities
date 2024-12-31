@@ -50,7 +50,11 @@ export default defineConfig({
             '^/city': {
                 target,
                 secure: false
-            }
+            },
+            '^/state': {
+                target,
+                secure: false
+            },
         },
         port: 52692,
         https: {
