@@ -14,7 +14,7 @@ namespace ReactApp1.Server.Infra
         public DbSet<State> States { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Filename=Teste.db")
+            => options.UseNpgsql("Server=localhost;Port=5433;User Id=postgres;Password=admin;Database=postgres")
             .ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
